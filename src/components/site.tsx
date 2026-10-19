@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import logo from "@/assets/logo.png";
-import { PHONE, orderLink } from "@/lib/site";
+import { PHONE, ADDRESS, orderLink } from "@/lib/site";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -81,8 +81,8 @@ export function Footer() {
         </div>
         <div className="text-sm">
           <p className="mb-3 font-bold text-lime">Reach us</p>
-          <p className="opacity-85">Lagos, Nigeria</p>
-          <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="block opacity-85">{PHONE}</a>
+          <p className="opacity-85 leading-relaxed">{ADDRESS}</p>
+          <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="block mt-2 opacity-85 hover:opacity-100 transition">{PHONE}</a>
           <div className="mt-4"><OrderButton>Chat on WhatsApp</OrderButton></div>
         </div>
       </div>

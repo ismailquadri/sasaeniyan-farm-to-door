@@ -27,6 +27,7 @@ import {
 
 export const PHONE = DISPLAY_PHONE;
 export const WHATSAPP = WHATSAPP_NUMBER;
+export const ADDRESS = "11, Shogunle Close, Aboru, Iyana-Ipaja, Lagos State";
 
 export function orderLink(item?: string, customerName?: string) {
   if (item) {

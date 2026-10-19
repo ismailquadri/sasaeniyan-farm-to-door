@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { PageHero, meta } from "@/components/site";
-import { PHONE, products, deliveryZones, valueBundles } from "@/lib/site";
+import { PHONE, ADDRESS, products, deliveryZones, valueBundles } from "@/lib/site";
 import {
   buildWhatsAppLink,
   draftBasketOrderMessage,
@@ -121,10 +121,13 @@ function Contact() {
           </div>
 
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-soil">Farm &amp; Dispatch Hubs</span>
-            <p className="mt-1 font-display text-2xl font-bold">Lagos &amp; Epe, Nigeria</p>
+            <div className="flex items-center gap-1.5 text-soil">
+              <MapPin className="h-4 w-4 text-primary" />
+              <span className="text-xs font-bold uppercase tracking-widest">Office &amp; Dispatch Hub</span>
+            </div>
+            <p className="mt-1 font-display text-2xl font-bold">{ADDRESS}</p>
             <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-              Integrated circular farm operations in Epe, with cold storage and same-day express dispatch across Lagos metropolis.
+              Order pickups, logistics coordination, and administrative desk. Express same-day dispatch across Lagos metropolis and integrated farm operations in Epe.
             </p>
           </div>
 
