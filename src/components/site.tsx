@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/logo.png";
 import { PHONE, orderLink } from "@/lib/site";
 
 const nav = [
@@ -31,7 +31,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-        <Link to="/" className="flex items-center"><img src={logo.url} alt="Sàsàèníyàn Integrated" className="h-10 w-auto" /></Link>
+        <Link to="/" className="flex items-center gap-2">
+          <img src={logo} alt="Sàsàèníyàn Integrated" className="h-10 w-auto object-contain" />
+        </Link>
         <nav className="hidden items-center gap-7 md:flex">
           {nav.map((n) => (
             <Link key={n.to} to={n.to} activeOptions={{ exact: true }}
@@ -65,6 +67,9 @@ export function Footer() {
     <footer className="bg-forest text-forest-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
+          <Link to="/" className="inline-block mb-4 rounded-xl bg-card/95 p-2 backdrop-blur-xs shadow-xs">
+            <img src={logo} alt="Sàsàèníyàn Integrated" className="h-10 w-auto object-contain" />
+          </Link>
           <p className="font-display text-2xl">Sàsàèníyàn Integrated</p>
           <p className="mt-3 text-sm opacity-75">Feeding the future, sustainably. Integrated crop, livestock and organic manure farming in Lagos, Nigeria.</p>
         </div>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import cofounder from "@/assets/cofounder.png.asset.json";
+import adekunle from "@/assets/adekunle.png";
 import { PageHero, meta } from "@/components/site";
 import { Team } from "@/components/team";
 
@@ -27,7 +27,7 @@ function About() {
           <p className="mt-4 text-muted-foreground">We are proud participants of the Lagos State Ministry of Agriculture's Agripreneurship Programme.</p>
         </div>
         <figure>
-          <img src={cofounder.url} alt="Adekunle Ajisafe, Founder & CEO at the Lagos Agripreneurship Programme" loading="lazy" className="w-full rounded-3xl object-cover shadow-sm" />
+          <img src={adekunle} alt="Adekunle Ajisafe, Founder & CEO at the Lagos Agripreneurship Programme" loading="lazy" className="w-full rounded-3xl object-cover shadow-sm aspect-[4/3] object-top" />
           <figcaption className="mt-3 text-sm text-muted-foreground">Founder &amp; CEO Adekunle Ajisafe at the Lagos State Agripreneurship Programme.</figcaption>
         </figure>
       </section>

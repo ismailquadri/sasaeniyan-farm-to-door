@@ -1,11 +1,11 @@
-import cofounder from "@/assets/cofounder.png.asset.json";
-import quadri from "@/assets/quadri.jpg.asset.json";
-import rasheedat from "@/assets/rasheedat.jpg.asset.json";
+import adekunle from "@/assets/adekunle.png";
+import quadri from "@/assets/quadri.jpg";
+import rasheedat from "@/assets/rasheedat.png";
 
 const team = [
-  { name: "Adekunle Ajisafe", role: "CEO, Founder", img: cofounder.url },
-  { name: "Quadri Ismail", role: "Tech Cofounder", img: quadri.url },
-  { name: "Rasheedat Mosobalaje", role: "Finance & Administration", img: rasheedat.url },
+  { name: "Adekunle Ajisafe", role: "CEO, Founder", img: adekunle },
+  { name: "Quadri Ismail", role: "Tech Cofounder", img: quadri },
+  { name: "Rasheedat Mosobalaje", role: "Finance & Administration", img: rasheedat },
 ];
 
 export function Team() {
