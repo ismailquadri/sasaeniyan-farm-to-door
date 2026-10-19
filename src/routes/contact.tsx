@@ -154,11 +154,11 @@ function Contact() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="text-[11px] font-bold text-muted-foreground block mb-1">Your Full Name</label>
-              <input required placeholder="e.g. Tunde Balogun" className={field} value={f.name} onChange={set("name")} />
+              <input required autoComplete="name" placeholder="e.g. Tunde Balogun" className={field} value={f.name} onChange={set("name")} />
             </div>
             <div>
               <label className="text-[11px] font-bold text-muted-foreground block mb-1">Phone / WhatsApp Number</label>
-              <input required placeholder="e.g. 0801 234 5678" className={field} value={f.phone} onChange={set("phone")} />
+              <input required type="tel" inputMode="tel" autoComplete="tel" placeholder="e.g. 0801 234 5678" className={field} value={f.phone} onChange={set("phone")} />
             </div>
           </div>
 

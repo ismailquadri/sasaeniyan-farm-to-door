@@ -33,12 +33,12 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/80 to-forest/10" />
         <div className="relative mx-auto max-w-6xl px-5 py-24 text-forest-foreground md:py-36">
           <p className="text-sm font-bold uppercase tracking-widest text-lime">Integrated AgroTech · Lagos</p>
-          <h1 className="mt-4 max-w-2xl text-4xl sm:text-5xl md:text-7xl leading-[1.05]">Fresh from our soil to your table.</h1>
-          <p className="mt-6 max-w-lg text-lg opacity-85">Organic manure, fresh produce, eggs and poultry — grown sustainably in Nigeria and sold directly to you.</p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <h1 className="mt-4 max-w-2xl text-3xl sm:text-5xl md:text-7xl leading-[1.08] font-display">Fresh from our soil to your table.</h1>
+          <p className="mt-5 max-w-lg text-base sm:text-lg opacity-85 leading-relaxed">Organic manure, fresh produce, eggs and poultry — grown sustainably in Nigeria and sold directly to you.</p>
+          <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-2.5 sm:gap-3">
             <OrderButton>Order on WhatsApp</OrderButton>
-            <Link to="/products" className="inline-flex items-center rounded-full border border-forest-foreground/40 px-6 py-3 text-sm font-bold hover:bg-forest-foreground/10">Browse products</Link>
-            <a href="#ai-recommender" className="inline-flex items-center gap-2 rounded-full bg-forest-foreground/15 px-6 py-3 text-sm font-bold hover:bg-forest-foreground/25 transition">
+            <Link to="/products" className="inline-flex items-center justify-center rounded-full border border-forest-foreground/40 px-6 py-3 text-sm font-bold hover:bg-forest-foreground/10 active:scale-95 transition">Browse products</Link>
+            <a href="#ai-recommender" className="inline-flex items-center justify-center gap-2 rounded-full bg-forest-foreground/15 px-6 py-3 text-sm font-bold hover:bg-forest-foreground/25 active:scale-95 transition">
               ✨ AI Recommender
             </a>
           </div>

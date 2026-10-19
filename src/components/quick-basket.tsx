@@ -48,8 +48,8 @@ export function QuickBasketDrawer() {
 
   return (
     <>
-      {/* Floating Action Pill */}
-      <aside aria-label="Quick order basket" className="fixed bottom-6 right-6 z-40">
+      {/* Floating Action Pill (Desktop only, mobile uses sticky bottom bar) */}
+      <aside aria-label="Quick order basket" className="hidden md:block fixed bottom-6 right-6 z-40">
         <button
           onClick={openBasket}
           className="flex items-center gap-2.5 rounded-full bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-2xl ring-2 ring-forest-foreground/20 hover:scale-105 transition active:scale-95"
@@ -66,17 +66,21 @@ export function QuickBasketDrawer() {
 
       {/* Slide-over Drawer / Modal Backdrop */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-end bg-black/50 backdrop-blur-xs animate-in fade-in-50 duration-200">
-          <div className="h-full w-full max-w-md bg-background shadow-2xl flex flex-col justify-between overflow-hidden animate-in slide-in-from-right duration-300">
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-end bg-black/50 backdrop-blur-xs animate-in fade-in-50 duration-200">
+          <div className="h-[92vh] sm:h-full w-full max-w-md bg-background shadow-2xl rounded-t-3xl sm:rounded-none flex flex-col justify-between overflow-hidden animate-in slide-in-from-bottom sm:slide-in-from-right duration-300">
+            {/* Mobile Drag Indicator */}
+            <div className="w-12 h-1 bg-muted-foreground/30 rounded-full mx-auto mt-2.5 mb-1 md:hidden" />
+
             {/* Drawer Header */}
-            <div className="flex items-center justify-between border-b px-6 py-4 bg-card">
+            <div className="flex items-center justify-between border-b px-5 sm:px-6 py-3.5 sm:py-4 bg-card">
               <div className="flex items-center gap-2">
                 <ShoppingBasket className="h-5 w-5 text-soil" />
-                <h3 className="font-display text-xl font-bold">Your Multi-Item Basket</h3>
+                <h3 className="font-display text-lg sm:text-xl font-bold">Your Farm Basket</h3>
               </div>
               <button
                 onClick={closeBasket}
-                className="rounded-full p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition"
+                aria-label="Close basket"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground active:scale-95 transition"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -183,26 +187,29 @@ export function QuickBasketDrawer() {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1.5 sm:gap-2">
                           <button
                             onClick={() => decrementItem(item.name)}
-                            className="flex h-7 w-7 items-center justify-center rounded-lg bg-secondary text-foreground hover:bg-muted transition"
+                            aria-label={`Decrease ${item.name}`}
+                            className="flex h-8 w-8 sm:h-7 sm:w-7 items-center justify-center rounded-lg bg-secondary text-foreground hover:bg-muted active:scale-95 transition"
                           >
                             <Minus className="h-3.5 w-3.5" />
                           </button>
-                          <span className="w-5 text-center font-bold text-xs">{item.qty}</span>
+                          <span className="w-6 text-center font-bold text-xs">{item.qty}</span>
                           <button
                             onClick={() => addItem({ name: item.name, unit: item.unit, image: item.image })}
-                            className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition"
+                            aria-label={`Increase ${item.name}`}
+                            className="flex h-8 w-8 sm:h-7 sm:w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground hover:opacity-90 active:scale-95 transition"
                           >
                             <Plus className="h-3.5 w-3.5" />
                           </button>
                           <button
                             onClick={() => removeItem(item.name)}
-                            className="ml-1 text-muted-foreground hover:text-destructive p-1 transition"
+                            className="ml-1 text-muted-foreground hover:text-destructive p-1.5 active:scale-95 transition"
                             title="Remove"
+                            aria-label={`Remove ${item.name} from basket`}
                           >
-                            <Trash2 className="h-3.5 w-3.5" />
+                            <Trash2 className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
                           </button>
                         </div>
                       </div>
@@ -270,7 +277,7 @@ export function QuickBasketDrawer() {
             </div>
 
             {/* Drawer Footer CTA */}
-            <div className="border-t p-6 bg-card space-y-3">
+            <div className="border-t p-5 sm:p-6 bg-card space-y-3 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
               {items.length === 0 ? (
                 <p className="text-xs text-center text-muted-foreground">
                   Your basket is empty. Tap <strong className="text-foreground">+ Add</strong> on any item above to get started.
@@ -288,7 +295,7 @@ export function QuickBasketDrawer() {
                     href={orderUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold text-accent-foreground hover:brightness-95 transition shadow-md"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold text-accent-foreground hover:brightness-95 active:scale-95 transition shadow-md"
                   >
                     <span>Send Order to WhatsApp</span>
                     <ArrowRight className="h-4 w-4" />

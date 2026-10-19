@@ -38,13 +38,13 @@ function Products() {
 
       {/* Product Catalog Grid */}
       <section className="mx-auto max-w-6xl px-5 py-14">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-wrap gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 -mx-5 px-5 sm:mx-0 sm:px-0 sm:flex-wrap [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
             {cats.map((c) => (
               <button
                 key={c}
                 onClick={() => setCat(c)}
-                className={`rounded-full px-5 py-2 text-sm font-bold ring-1 ring-border transition ${
+                className={`shrink-0 rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold ring-1 ring-border transition active:scale-95 ${
                   cat === c
                     ? "bg-primary text-primary-foreground"
                     : "bg-card hover:bg-secondary"
@@ -54,7 +54,7 @@ function Products() {
               </button>
             ))}
           </div>
-          <span className="text-xs font-semibold text-muted-foreground">
+          <span className="text-xs font-semibold text-muted-foreground shrink-0">
             Showing {list.length} direct-from-farm items
           </span>
         </div>
@@ -108,14 +108,14 @@ function Products() {
                   </div>
                 )}
 
-                <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
+                <div className="mt-4 pt-3 border-t border-border grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => addItem({ name: p.name, unit: p.unit, image: p.image, price: p.approxFarmPrice, category: p.category })}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-xs font-bold text-primary hover:bg-primary hover:text-primary-foreground transition"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-3 py-2.5 text-xs font-bold text-primary hover:bg-primary hover:text-primary-foreground active:scale-95 transition"
                   >
                     <Plus className="h-3.5 w-3.5" />
-                    <span>Add to Basket</span>
+                    <span>+ Basket</span>
                   </button>
                   <OrderButton item={`${p.name} (${p.unit})`}>Order</OrderButton>
                 </div>

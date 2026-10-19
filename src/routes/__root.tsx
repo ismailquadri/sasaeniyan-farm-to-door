@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Header, Footer } from "@/components/site";
+import { Header, Footer, MobileBottomBar } from "@/components/site";
 import { QuickBasketDrawer } from "@/components/quick-basket";
 
 function NotFoundComponent() {
@@ -120,9 +120,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <main><Outlet /></main>
+      <main className="pb-20 md:pb-0"><Outlet /></main>
       <Footer />
       <QuickBasketDrawer />
+      <MobileBottomBar />
     </QueryClientProvider>
   );
 }

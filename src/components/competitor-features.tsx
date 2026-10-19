@@ -97,7 +97,7 @@ export function CompetitorValueFeatures() {
         </div>
 
         {/* Household / Farm Selector Tabs */}
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="mt-6 flex items-center gap-2 overflow-x-auto pb-1 -mx-2 px-2 sm:mx-0 sm:px-0 sm:flex-wrap [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
           {(
             [
               ["small", "1–2 People"],
@@ -109,7 +109,7 @@ export function CompetitorValueFeatures() {
             <button
               key={key}
               onClick={() => setHouseholdType(key)}
-              className={`rounded-full px-4 py-2 text-xs font-bold transition ${
+              className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold transition active:scale-95 ${
                 householdType === key
                   ? "bg-primary text-primary-foreground shadow-xs"
                   : "bg-card text-card-foreground ring-1 ring-border hover:bg-background"

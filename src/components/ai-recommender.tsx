@@ -137,11 +137,12 @@ export function AiRecommender({ defaultCategory = "all" }: { defaultCategory?: "
         </p>
 
         {/* Category switcher */}
-        <div className="mt-6 flex flex-wrap gap-2">
+        {/* Category switcher */}
+        <div className="mt-6 flex items-center gap-2 overflow-x-auto pb-1 -mx-2 px-2 sm:mx-0 sm:px-0 sm:flex-wrap [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
           <button
             type="button"
             onClick={() => setActiveTab("all")}
-            className={`rounded-full px-4 py-2 text-xs font-bold transition ${
+            className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold transition active:scale-95 ${
               activeTab === "all"
                 ? "bg-primary text-primary-foreground shadow-xs"
                 : "bg-secondary text-secondary-foreground hover:bg-muted"
@@ -152,32 +153,32 @@ export function AiRecommender({ defaultCategory = "all" }: { defaultCategory?: "
           <button
             type="button"
             onClick={() => setActiveTab("meal")}
-            className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold transition ${
+            className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold transition active:scale-95 ${
               activeTab === "meal"
                 ? "bg-primary text-primary-foreground shadow-xs"
                 : "bg-secondary text-secondary-foreground hover:bg-muted"
             }`}
           >
             <Utensils className="h-3.5 w-3.5" />
-            Meals & Cooking
+            Meals &amp; Cooking
           </button>
           <button
             type="button"
             onClick={() => setActiveTab("farm")}
-            className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold transition ${
+            className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold transition active:scale-95 ${
               activeTab === "farm"
                 ? "bg-primary text-primary-foreground shadow-xs"
                 : "bg-secondary text-secondary-foreground hover:bg-muted"
             }`}
           >
             <Sprout className="h-3.5 w-3.5" />
-            Farming & Soil
+            Farming &amp; Soil
           </button>
         </div>
 
         {/* Input Form */}
         <form onSubmit={handleFormSubmit} className="mt-6">
-          <div className="relative flex flex-col gap-3 rounded-2xl border bg-background p-2 focus-within:ring-2 focus-within:ring-ring sm:flex-row sm:items-center">
+          <div className="relative flex flex-col gap-2.5 rounded-2xl border bg-background p-2.5 focus-within:ring-2 focus-within:ring-ring sm:flex-row sm:items-center">
             <textarea
               rows={2}
               value={query}
@@ -189,12 +190,12 @@ export function AiRecommender({ defaultCategory = "all" }: { defaultCategory?: "
                     ? "e.g., Cooking ofada rice and stew for a family Sunday gathering of 6 people..."
                     : "e.g., Need ingredients for egusi soup and yam, or organic compost for my garden..."
               }
-              className="flex-1 resize-none bg-transparent px-3 py-2 text-sm outline-none placeholder:text-muted-foreground/70"
+              className="flex-1 resize-none bg-transparent px-3 py-2 text-sm outline-none placeholder:text-muted-foreground/70 min-h-[52px]"
             />
             <button
               type="submit"
               disabled={isPending}
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:opacity-95 disabled:opacity-50"
+              className="inline-flex w-full sm:w-auto shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:opacity-95 active:scale-95 disabled:opacity-50"
             >
               {isPending ? (
                 <>
@@ -218,7 +219,7 @@ export function AiRecommender({ defaultCategory = "all" }: { defaultCategory?: "
           <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Or try an example:
           </p>
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className="mt-2 flex items-center gap-2 overflow-x-auto pb-1 -mx-2 px-2 sm:mx-0 sm:px-0 sm:flex-wrap [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
             {filteredPresets.map((preset) => {
               const Icon = preset.icon;
               return (
@@ -227,7 +228,7 @@ export function AiRecommender({ defaultCategory = "all" }: { defaultCategory?: "
                   type="button"
                   onClick={() => handleSubmit(preset.prompt)}
                   disabled={isPending}
-                  className="inline-flex items-center gap-1.5 rounded-full border bg-background/80 px-3.5 py-1.5 text-xs text-muted-foreground transition hover:border-foreground/30 hover:bg-accent/15 hover:text-foreground disabled:opacity-50"
+                  className="shrink-0 inline-flex items-center gap-1.5 rounded-full border bg-background/80 px-3.5 py-1.5 text-xs text-muted-foreground transition hover:border-foreground/30 hover:bg-accent/15 hover:text-foreground active:scale-95 disabled:opacity-50"
                 >
                   <Icon className="h-3 w-3 text-soil" />
                   <span>{preset.label}</span>
@@ -298,7 +299,7 @@ export function AiRecommender({ defaultCategory = "all" }: { defaultCategory?: "
                       <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{reason}</p>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-border flex flex-wrap items-center justify-between gap-2">
+                    <div className="mt-4 pt-3 border-t border-border grid grid-cols-2 gap-2">
                       <button
                         type="button"
                         onClick={() =>
@@ -309,13 +310,13 @@ export function AiRecommender({ defaultCategory = "all" }: { defaultCategory?: "
                             category: product.category,
                           })
                         }
-                        className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 text-xs font-bold text-primary hover:bg-primary hover:text-primary-foreground transition"
+                        className="inline-flex items-center justify-center gap-1 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-2 text-xs font-bold text-primary hover:bg-primary hover:text-primary-foreground active:scale-95 transition"
                       >
                         <Plus className="h-3 w-3" />
                         <span>Add</span>
                       </button>
                       <OrderButton item={`${product.name} (${product.unit})`}>
-                        Order this
+                        Order
                       </OrderButton>
                     </div>
                   </div>
